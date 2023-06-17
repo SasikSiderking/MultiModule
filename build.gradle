@@ -1,0 +1,44 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext {
+        def dagger_version = '2.46.1'
+        def retrofit_version = "2.9.0"
+        Libraries = [
+                Android: [
+                        CoreKtx  : "androidx.core:core-ktx:1.10.1",
+                        AppCompat: "androidx.appcompat:appcompat:1.6.1",
+                        ConstraintLayout: "androidx.constraintlayout:constraintlayout:2.1.4",
+                        LiveData: "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1",
+                        ViewModel: "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1",
+                        Fragment: "androidx.navigation:navigation-fragment-ktx:2.6.0",
+                        Navigation: "androidx.navigation:navigation-ui-ktx:2.6.0"
+                ],
+                Google:[
+                        Material: "com.google.android.material:material:1.9.0"
+                ],
+                Tests:[
+                        Junit: "junit:junit:4.13.2",
+                        ExtJunit: "androidx.test.ext:junit:1.1.5",
+                        Espresso: "androidx.test.espresso:espresso-core:3.5.1"
+                ],
+                Dagger:[
+                        Dagger:"com.google.dagger:dagger:$dagger_version",
+                        DaggerCompiler:"com.google.dagger:dagger-compiler:$dagger_version"
+                ],
+                Glide:[
+                        Glide: "com.github.bumptech.glide:glide:4.15.1",
+                        GlideCompiler: "com.github.bumptech.glide:compiler:4.15.1"
+                ],
+                Retrofit:[
+                        Retrofit: "com.squareup.retrofit2:retrofit:$retrofit_version",
+                        OkHttp: "com.squareup.okhttp3:okhttp:4.10.0"
+                ]
+
+        ]
+    }
+}
+plugins {
+    id 'com.android.application' version '8.0.2' apply false
+    id 'com.android.library' version '8.0.2' apply false
+    id 'org.jetbrains.kotlin.android' version '1.8.22' apply false
+}

@@ -1,0 +1,60 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'com.example.multimodule'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.multimodule"
+        minSdk 26
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation Libraries.Android.CoreKtx
+    implementation Libraries.Android.AppCompat
+    implementation Libraries.Android.ConstraintLayout
+    implementation Libraries.Android.LiveData
+    implementation Libraries.Android.ViewModel
+    implementation Libraries.Android.Fragment
+    implementation Libraries.Android.Navigation
+    implementation Libraries.Google.Material
+    implementation Libraries.Tests.Junit
+    implementation Libraries.Tests.ExtJunit
+    implementation Libraries.Tests.Espresso
+
+    implementation project(':features:account')
+    implementation project(':features:basket')
+    implementation project(':features:home')
+    implementation project(':features:search')
+
+    implementation Libraries.Dagger.Dagger
+    implementation Libraries.Dagger.DaggerCompiler
+}
